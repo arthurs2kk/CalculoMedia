@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #6a11cb, #2575fc);
+            color: #fff;
+        }
+
+        form {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            width: 320px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        h3 {
+            margin-bottom: 20px;
+            font-size: 26px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 2px solid transparent;
+            font-size: 16px;
+            transition: border 0.3s, background 0.3s;
+        }
+
+        input:focus {
+            border: 2px solid #ff7f50;
+            outline: none;
+            background-color: #fff;
+            color: #000;
+        }
+
+        input[type="submit"] {
+            background-color: #ff7f50;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #ff6347;
+        }
+
+        .msg {
+            margin-top: 10px;
+            font-size: 14px;
+            height: 20px;
+            color: #ff7373;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form onsubmit="return logar()">
+        <h3>Login</h3>
+        <input type="text" placeholder="Login" id="login" required>
+        <input type="password" placeholder="Senha" id="senha" required>
+        <input type="submit" value="Entrar">
+        <div class="msg" id="msg"></div>
+    </form>
+
+    <script>
+        const usuarios = {
+            usuario01: "Ht8rP4vQ", usuario02: "L9fY2kZd", usuario03: "Qp3Xw7Nm",
+            usuario04: "Zt6Gv1Rk", usuario05: "Bn5Kq8Lp", usuario06: "Jx7Rt3Qv",
+            usuario07: "Pf4Ws9Xc", usuario08: "Lm2Dz7Bn", usuario09: "Vq6Ty1Wk",
+            usuario10: "Hn5Jp3Fs", usuario11: "Rk4Qm8Lp", usuario12: "Dv9Xy2Nz",
+            usuario13: "Fp7Ws6Kq", usuario14: "Tq3Lm8Bv", usuario15: "Zn1Kt5Xf",
+            usuario16: "Gv8Rp3Nc", usuario17: "Jp6Hy2Qk", usuario18: "Lx5Dz9Vm",
+            usuario19: "Qn4Pt7Bw", usuario20: "Wf2Xy8Kq", usuario21: "Hp7Zr5Lc",
+            usuario22: "Bn3Qw1Ft", usuario23: "Rk6Xy4Pv", usuario24: "Dm5Ty8Kq",
+            usuario25: "Lf2Wv7Nz", usuario26: "Jp8Rt3Xv", usuario27: "Gq5Yk9Lm",
+            usuario28: "Tn1Dz6Qf", usuario29: "Vx3Hp8Rw", usuario30: "Lm7Qt4Nk",
+            usuario31: "Fp9Ws2Xc", usuario32: "Zn6Hy5Lp", usuario33: "Dv3Xy7Bq",
+            usuario34: "Qn8Rt1Vz", usuario35: "Hp4Kq9Lm", usuario36: "Rk2Ty6Xc",
+            usuario37: "Jp5Dz8Bw", usuario38: "Lx7Wv3Nz", usuario39: "Gq1Hy4Fp",
+            usuario40: "Tn6Xy2Kq", usuario41: "Vp8Rt5Lc", usuario42: "Lm3Dz7Qf",
+            usuario43: "Fq4Ws9Nk", usuario44: "Zn5Hy2Pv", usuario45: "Dv7Xy6Lk",
+            usuario46: "Qn2Rt8Bm", usuario47: "Hp9Kq3Xv", usuario48: "Rk1Ty5Lc",
+            usuario49: "Jp6Dz4Qf", usuario50: "Lx8Wv2Np"
+        };
+
+        function logar() {
+            const login = document.getElementById('login').value;
+            const senha = document.getElementById('senha').value;
+            const msg = document.getElementById('msg');
+
+            if (usuarios[login] && usuarios[login] === senha) {
+                msg.style.color = '#7fff7f';
+                msg.textContent = 'Login bem-sucedido!';
+
+                window.location.href = "MediaGeral.HTML";
+            } else {
+                msg.style.color = '#ff7373';
+                msg.textContent = 'Usuário e/ou senha incorretos';
+            }
+
+            return false; // previne recarregamento da página
+        }
+    </script>
+
+</body>
+
+</html>
